@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { EyeInvisibleFilled, EyeFilled } from "@ant-design/icons";
+import "../css/Login.css";
 
 function Login() {
+  const [isInvalid, setIsInvalid] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
@@ -21,47 +23,57 @@ function Login() {
       // navigate("/dashboard");
     } else {
       console.log("fail");
+      setIsInvalid(false);
       // alert("You have entered password or username incorrectly.");
     }
   };
 
+  function test() {
+    setIsInvalid(!isInvalid);
+  }
+
   return (
-    <div className="Login">
-      <div className="Auth-Form-Container">
-        <h2 className="title">Login</h2>
-        <form className="Login-Form" onSubmit={handleSubmit}>
-          <label htmlfor="username">Username: </label>
-          <input
-            className="Input-Button"
-            value={username}
-            type="text"
-            placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
-            id="username"
-            name="username"
-          ></input>
-
-          <label htmlfor="password">Password: </label>
-          <input
-            className="Input-Button"
-            value={password}
-            type={visible ? "text" : "password"}
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-            id="password"
-            name="password"
-          ></input>
-          <div className="Visibility-Icon" onClick={() => setVisible(!visible)}>
-            {visible ? <EyeFilled /> : <EyeInvisibleFilled />}{" "}
-            {/* ternary statement */}
+    <>
+      <section className="background">
+        <div className="card-container">
+          <div className="card">
+            <h1>MyAccount</h1>
+            <p>
+              Enter the email address linked with the policy to register or log
+              in.
+            </p>
+            <div className="input-container">
+              <input
+                type="text"
+                placeholder="Enter a username"
+                className="input-box"
+              ></input>
+              <input
+                className="input-box"
+                value={password}
+                type={visible ? "text" : "password"}
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+                id="password"
+                name="password"
+              ></input>
+              <div
+                className="Visibility-Icon"
+                onClick={() => setVisible(!visible)}
+              >
+                {visible ? <EyeFilled /> : <EyeInvisibleFilled />}{" "}
+                {/* ternary statement */}
+              </div>
+            </div>
+            {/* on click run handle submit */}
+            <button onClick={test}>Continue</button>
+            {isInvalid ? (
+              <div className="error-message">Invalid password, try again</div>
+            ) : null}
           </div>
-
-          <button className="enter-btn Button-login" type="submit">
-            Login
-          </button>
-        </form>
-      </div>
-    </div>
+        </div>
+      </section>
+    </>
   );
 }
 
