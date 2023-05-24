@@ -7,7 +7,7 @@ https://github.com/KingGift17/hasting-direct-ovie-bazunu
 
 No set-up Required preview
 
-hasting-direct-ovie-bazunu.vercel.app
+https://hasting-direct-ovie-bazunu-k5w4z5k3e-kinggift17.vercel.app
 
 ###
 
