@@ -5,7 +5,6 @@ import "../css/Login.css";
 
 function Login() {
   const [isInvalid, setIsInvalid] = useState(false);
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
   const navigate = useNavigate();
