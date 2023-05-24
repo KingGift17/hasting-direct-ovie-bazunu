@@ -10,4 +10,3 @@ node version: v18.13.0
 npm install
 npm run dev
 
-Displays like this:
