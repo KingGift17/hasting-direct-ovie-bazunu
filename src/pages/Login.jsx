@@ -40,8 +40,8 @@ function Login() {
           <div className="card">
             <h1>MyAccount</h1>
             <p>
-              Enter the email address linked with the policy to register or
-              login.
+              Enter your username and password to login your HastingDirect
+              account.
             </p>
             <form onSubmit={handleSubmit}>
               <div className="input-container">
