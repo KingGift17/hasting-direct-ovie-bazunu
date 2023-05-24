@@ -15,20 +15,20 @@ function Login() {
     console.log(password);
     if (
       password.match(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*^[^'/"])[A-Za-z\d@$!%*?&]{8,}/g
+        /^(?!.*[/'"\s])(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/g
       )
     ) {
-      // alert("Login Successfully");
       console.log("pass");
+      setIsInvalid(false);
       // navigate("/dashboard");
     } else {
       console.log("fail");
-      setIsInvalid(false);
+      setIsInvalid(true);
       // alert("You have entered password or username incorrectly.");
     }
   };
 
-  function test() {
+  function Invalid() {
     setIsInvalid(!isInvalid);
   }
 
@@ -39,37 +39,41 @@ function Login() {
           <div className="card">
             <h1>MyAccount</h1>
             <p>
-              Enter the email address linked with the policy to register or log
-              in.
+              Enter the email address linked with the policy to register or
+              login.
             </p>
-            <div className="input-container">
-              <input
-                type="text"
-                placeholder="Enter a username"
-                className="input-box"
-              ></input>
-              <input
-                className="input-box"
-                value={password}
-                type={visible ? "text" : "password"}
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-                id="password"
-                name="password"
-              ></input>
-              <div
-                className="Visibility-Icon"
-                onClick={() => setVisible(!visible)}
-              >
-                {visible ? <EyeFilled /> : <EyeInvisibleFilled />}{" "}
-                {/* ternary statement */}
+            <form onSubmit={handleSubmit}>
+              <div className="input-container">
+                <input
+                  type="text"
+                  placeholder="Enter a username"
+                  className="input-box"
+                ></input>
+                <input
+                  className="input-box"
+                  value={password}
+                  type={visible ? "text" : "password"}
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  id="password"
+                  name="password"
+                ></input>
+                <div
+                  className="Visibility-Icon"
+                  onClick={() => setVisible(!visible)}
+                >
+                  {visible ? <EyeFilled /> : <EyeInvisibleFilled />}{" "}
+                  {/* ternary statement */}
+                </div>
               </div>
-            </div>
-            {/* on click run handle submit */}
-            <button onClick={test}>Continue</button>
-            {isInvalid ? (
-              <div className="error-message">Invalid password, try again</div>
-            ) : null}
+              {/* on click run handle submit */}
+              <button onClick={Invalid} type="submit">
+                Continue
+              </button>
+              {isInvalid ? (
+                <div className="error-message">Invalid password, try again</div>
+              ) : null}
+            </form>
           </div>
         </div>
       </section>

@@ -10,6 +10,10 @@ p {
   padding: 0.5rem 0;
 }
 
+.error-message {
+  font-family: sans-serif;
+}
+
 .background {
   display: grid;
   place-content: center;
