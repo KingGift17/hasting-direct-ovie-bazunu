@@ -20,11 +20,13 @@ function Login() {
     ) {
       console.log("pass");
       setIsInvalid(false);
-      // navigate("/dashboard");
+      navigate("/dashboard");
+    } else if (password.length > 10 ** 9) {
+      console.log("fail");
+      setIsInvalid(true);
     } else {
       console.log("fail");
       setIsInvalid(true);
-      // alert("You have entered password or username incorrectly.");
     }
   };
 
@@ -66,7 +68,6 @@ function Login() {
                   {/* ternary statement */}
                 </div>
               </div>
-              {/* on click run handle submit */}
               <button onClick={Invalid} type="submit">
                 Continue
               </button>
