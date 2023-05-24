@@ -37,12 +37,14 @@ p {
   border-radius: 6px;
 }
 
-.card {
-  padding: 20px;
-  background-color: white;
-  width: 100%;
-  border-radius: 5px;
-  box-shadow: rgb(176, 176, 176) 0px 3px 2px 0px;
+@media screen and (min-width: 600px) {
+  .card {
+    padding: 20px;
+    background-color: white;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: rgb(176, 176, 176) 0px 3px 2px 0px;
+  }
 }
 
 .input-container {
